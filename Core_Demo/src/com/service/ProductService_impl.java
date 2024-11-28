@@ -1,0 +1,75 @@
+package com.service;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.model.Product;
+
+public class ProductService_impl implements Product_Service {
+
+	
+	static List<Product> plist = new ArrayList<>();
+	
+	@Override
+	public void addProduct(Product prod) {
+		
+		 try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/user", "root","@Mysql7799");
+			String sql = "insert into product(name,company,price,category)values('"+prod.getName()+"','"+prod.getCompany()+"','"+prod.getPrice()+"','"+prod.getCategory()+"')";
+			Statement stm = con.createStatement();
+			stm.execute(sql);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		 
+		//plist.add(prod);
+		//System.out.println("------added sucess-----size ="+plist.size());
+	}
+
+	@Override
+	public void deleteProduct(int id) {
+		//plist.remove(index);
+		 try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/user", "root","@Mysql7799");
+				String sql = "delete from product where id='"+id+"'";
+				Statement stm = con.createStatement();
+				stm.execute(sql);
+				System.out.println("Deleted id "+id);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		
+	}
+
+	@Override
+	public List<Product> getAllProduct() {
+		 try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/user", "root","@Mysql7799");
+				String sql = "select * from product";
+				Statement stm = con.createStatement();
+				ResultSet rs = stm.executeQuery(sql);
+				
+				while(rs.next()) {
+					System.out.println("Name="+rs.getString("name"));
+					System.out.println("Price="+rs.getInt("price"));
+					System.out.println("Company="+rs.getString("company"));
+					System.out.println("Category="+rs.getString("category"));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		return plist;
+	}
+	
+	
+
+}
