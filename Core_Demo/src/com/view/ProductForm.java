@@ -51,7 +51,7 @@ public class ProductForm extends JFrame {
 	 */
 	public ProductForm() {
 		setTitle("ProductForm");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1006, 650);
 		field = new JPanel();
 		field.setBorder(new EmptyBorder(5, 5, 5, 5));

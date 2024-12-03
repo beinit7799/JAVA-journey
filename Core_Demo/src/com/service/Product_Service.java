@@ -10,5 +10,9 @@ public interface Product_Service {
 	void deleteProduct(int index);
 	
 	List<Product> getAllProduct();
+	void updateProduct(Product prod);
+	List<Product> searchProduct(String data);
+
+
 	
 }
