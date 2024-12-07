@@ -4,14 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Index</title>
+<title>Home</title>
 </head>
 <body>
-<hr>
-<a href="LoginServlet">login</a>
-<a href="SignUpServlet">SignUp</a>
-<a href="AboutUs.jsp">About us</a>
-<a href="Contactus.jsp">Contact</a>
-
+	<h1>Welcome ${uname} </h1>
+	<hr>
 </body>
 </html>

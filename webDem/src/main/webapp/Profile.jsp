@@ -4,14 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Index</title>
+<title>Insert title here</title>
 </head>
 <body>
-<hr>
-<a href="LoginServlet">login</a>
-<a href="SignUpServlet">SignUp</a>
-<a href="AboutUs.jsp">About us</a>
-<a href="Contactus.jsp">Contact</a>
-
+	<h1>User Details</h1>
+	<hr>
+	<p>First Name:${fn}</p>
+	<p>Last Name:${ln}</p>
+	<p>User Name:${un}</p>
+	<p>Password:${pass}</p>
+	
 </body>
 </html>
