@@ -1,11 +1,15 @@
 package com.servlets;
 
+import java.awt.desktop.UserSessionEvent;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.service.UserService;
+import com.serviceimpl.UserServiceImpl;
 
 /**
  * Servlet implementation class LoginServlet
@@ -38,7 +42,9 @@ public class LoginServlet extends HttpServlet {
 		String un = request.getParameter("username");
 		String pass = request.getParameter("password");
 		
-		if (un.equals("hari") && pass.equals("123")) {
+		UserService us = new UserServiceImpl();
+		
+		if (us.login(un, pass)) {
 			request.setAttribute("uname",un);
 			request.getRequestDispatcher("Home.jsp").forward(request, response);
 		} else {

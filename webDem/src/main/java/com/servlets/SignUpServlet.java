@@ -1,11 +1,16 @@
 package com.servlets;
 
+import java.awt.desktop.UserSessionEvent;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.model.User;
+import com.service.UserService;
+import com.serviceimpl.UserServiceImpl;
 
 /**
  * Servlet implementation class SignUpServlet
@@ -39,11 +44,24 @@ public class SignUpServlet extends HttpServlet {
 		String un = request.getParameter("username");
 		String pass = request.getParameter("password");
 		
+		//send user data into database
+		User u = new User();
+		u.setFname(fn);
+		u.setLname(ln);
+		u.setUsername(un);
+		u.setPassword(pass);
+		
+		UserService us = new UserServiceImpl();
+		us.signup(u);
+		
+		request.getRequestDispatcher("LoginForm.jsp").forward(request, response);
+		
+		
 		//SEND DATA FROM SERVLET TO JSP
-		request.setAttribute("fn", fn);
+		/*request.setAttribute("fn", fn);
 		request.setAttribute("ln", ln);
 		request.setAttribute("un", un);
-		request.setAttribute("pass", pass);
+		request.setAttribute("pass", pass);*/
 
 
 
