@@ -40,7 +40,7 @@ public class SignUpServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//get data from SignupForm.jsp
 		String fn = request.getParameter("fname");
-		String ln = request.getParameter("ln");
+		String ln = request.getParameter("lname");
 		String un = request.getParameter("username");
 		String pass = request.getParameter("password");
 		

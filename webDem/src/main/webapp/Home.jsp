@@ -9,5 +9,6 @@
 <body>
 	<h1>Welcome ${uname} </h1>
 	<hr>
+	<a href="UserListServlet">User list</a>
 </body>
 </html>
