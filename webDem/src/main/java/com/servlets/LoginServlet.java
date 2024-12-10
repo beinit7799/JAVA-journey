@@ -51,7 +51,6 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("message","User not found");
 			request.getRequestDispatcher("LoginForm.jsp").forward(request, response);
 		}
-		request.getRequestDispatcher("Home.jsp").forward(request, response);
 	}
 
 }

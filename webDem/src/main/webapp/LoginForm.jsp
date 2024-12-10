@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,6 +24,7 @@
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
                                         <form action="LoginServlet" method="post">
+                                        <p  style="color:red">${message}</p>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" name="username" id="inputEmail" type="text" placeholder="name@example.com" />
                                                 <label for="inputEmail">User name</label>
@@ -40,9 +42,9 @@
                                                 <input type="submit" class="btn btn-primary" value="login">
                                             </div>
                                         </form>
-                                    </div>
+                                    </div> 
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                                        <div class="small"><a href="SignUpServlet">Need an account? Sign up!</a></div>
                                     </div>
                                 </div>
                             </div>
