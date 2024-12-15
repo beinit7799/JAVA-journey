@@ -14,7 +14,8 @@ public class Test {
 	public static void main(String[] args) {
 		//add();
 		//getAll();
-		update();
+		//update();
+		delete();
 	}
 	//add student
 	static void add() {
@@ -48,6 +49,28 @@ public class Test {
 	}
 	//update
 	static void update() {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
 		
+		Student s = (Student) session.get(Student.class, 2);
+		s.setCollege("hav");
+		s.setAge(30);
+		
+		session.update(s);
+		session.getTransaction().commit();
+		session.close();
+		
+	}
+	//delete student
+	static void delete() {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		
+		Student s =(Student) session.get(Student.class, 3);
+		session.delete(s);//delete sql
+		session.getTransaction().commit();
+		session.close();
 	}
 } 
