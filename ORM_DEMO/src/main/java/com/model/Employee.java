@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -23,7 +25,16 @@ public class Employee {
 	private Address address;
 	@OneToMany(mappedBy = "employee")
 	private List<Phone> phoneList;
+	@ManyToMany
+	@JoinTable(name = "employee_department",joinColumns = {@JoinColumn(name="empId")},inverseJoinColumns= {@JoinColumn(name="deptId")})
+	private List<Department> deptList;
 	
+	public List<Department> getDeptList() {
+		return deptList;
+	}
+	public void setDeptList(List<Department> deptList) {
+		this.deptList = deptList;
+	}
 	public int getId() {
 		return id;
 	}
