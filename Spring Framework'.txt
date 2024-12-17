@@ -1,0 +1,17 @@
+Spring framework
+# Used to create dynamic web apps in java.
+# Its a packaged framework for web applications in java.
+
+1. Spring core.
+2. Spring MVC. (X to much xml.config)
+3. Spring Boot(no xml.config)
+
+
+# Spring core.
+
+	1.Bean:
+	  -> Java object which is controlled by spring container.
+	
+	2.DI/IoC:
+	  -> Constructor injector
+          -> Setter injection 		
