@@ -7,13 +7,16 @@
 <body>
 	<h1>User Login</h1>
 	<hr>
-	<label for="inputEmail">User name</label>
-	<input class="" name="username" id="inputEmail" type="text" placeholder="name@example.com" />
-    <hr>
-    <label for="inputEmail">Password</label>
-    <input class="" name="password" id="password" type="password" placeholder="**" />
-    <hr>
-    <input type="submit" class="" value="login">
+	<form action="/login" method="post">
+		<label for="inputEmail">User name</label>
+		<input class="" name="username" id="inputEmail" type="text" placeholder="name@example.com" />
+	    <hr>
+	    <label for="inputEmail">Password</label>
+	    <input class="" name="password" id="password" type="password" placeholder="**" />
+	    <hr>
+	    <input type="submit" class="" value="login">
+	</form>
+	
     
 
 </body>
