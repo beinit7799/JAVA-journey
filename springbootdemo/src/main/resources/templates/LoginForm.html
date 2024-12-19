@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE  html>
+<html html xmlns:th="https://www.thymleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -8,6 +8,9 @@
 	<h1>User Login</h1>
 	<hr>
 	<form action="/login" method="post">
+	
+		<p style="color:red">[[${message}]]</p>
+	
 		<label for="inputEmail">User name</label>
 		<input class="" name="username" id="inputEmail" type="text" placeholder="name@example.com" />
 	    <hr>
