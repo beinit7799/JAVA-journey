@@ -50,6 +50,13 @@ public class UserController {
 		userService.userSignup(u);
 		return "LoginForm";
 	}
+	@GetMapping("/logout")
+	public String logout() {
+		
+		return "LoginForm";
+		
+		
+	}
 	
 
 }

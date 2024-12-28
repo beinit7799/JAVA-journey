@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Home</title>
+<meta charset="ISO-8859-1">
+<title>header</title>
 </head>
 <body>
-	<h1>Welcome : [[${uname}]]</h1>
-	<hr>
-	
-	<a href="/department/add">AddDepartment</a>| <a href="/department/list">DepartmentList</a>|<a href="/employee/add">AddEmployee</a>|<a href="/employee/list">EmployeeList</a>
-	
+	<th:block th:insert="Header.html"></th:block>
+
+
 </body>
 </html>
