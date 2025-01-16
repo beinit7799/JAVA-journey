@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bway.springdemo.model.User;
+import com.bway.springdemo.repositiry.ProductRepository;
 import com.bway.springdemo.service.UserService;
 import com.bway.springdemo.utils.VerifyRecaptcha;
 
@@ -24,8 +25,19 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private ProductRepository prodRepo;
 	
-	@GetMapping({"/","/login"})
+	@GetMapping("/")
+	public String getIndex(Model model) {
+		
+		model.addAttribute("plist",prodRepo.findAll());
+		
+		return"CustomerHome";
+	}
+	
+	
+	@GetMapping("/login")
 	public String getLogin() {
 		
 		log.info("----inside login form----");
@@ -47,6 +59,11 @@ public class UserController {
 			log.info("---login sucess----");
 			session.setAttribute("activeuser", usr);
 			session.setMaxInactiveInterval(400);//session expire after 400s
+			if(usr.getRole().equalsIgnoreCase("CUSTOMER")) {
+				model.addAttribute("plist",prodRepo.findAll());
+				return"CustomerHome";
+			}
+			
 			return "Home";
 		 }else {
 			 log.info("------login failed-----");
